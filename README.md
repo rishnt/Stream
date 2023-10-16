@@ -30,13 +30,10 @@ ArrayList<Integr> n=new ArrayList<>();
 n.add(19);
 n.add(38);
 n.add(39);
-
      OR
-
 List<Integer> n=Arrays.asList(10,29,29,38,29);
 List<Integer> evennum=new ArrayList<Integer>();
-
-                                                                        ____________________________________     
+__________________________________     
 [without Streams]
 
 for(int num:n){
@@ -45,7 +42,7 @@ evennum.add(num);
 } 
 }
 
-________________________________                                                                  
+________________________________                               
 [with Streams]
 
 
@@ -67,13 +64,13 @@ result=names.stream().filter(str->dtr.length()>6 && str.length()<8).collect(Coll
 OR (directly print without storing on other streams)
 
 names.stream().filter(str->dtr.length()>6 && str.length()<8).forEach(str->System.out.println(str));
-_________________________________________________________________________
+________________________________________________________________________
 HANDSON (3)
 
 List<String> words=Arrays.asList("a","syatem","enend",null,"sk",null);
 List<String> result=new ArrayList<String>();
 result=words.stream().filter(str->str!=null).collect(Collectors.toList()); 
-_________________________________________________________________________
+________________________________________________________________________
 HANDSON 4 (if collections store objects instead of primite data types then how do we process data in the filter method)
 
 
