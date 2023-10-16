@@ -37,7 +37,7 @@ List<Integer> n=Arrays.asList(10,29,29,38,29);
 List<Integer> evennum=new ArrayList<Integer>();
 
                                                                         ____________________________________     
-without Streams
+[without Streams]
 
 for(int num:n){
 if(num%2==0){
@@ -46,7 +46,7 @@ evennum.add(num);
 }
 
 ________________________________                                                                  
-with Streams
+[with Streams]
 
 
 evennum=n.stream().filter(e->e%2==0).collect(Collectors.toList());
