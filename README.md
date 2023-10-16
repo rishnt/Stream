@@ -74,3 +74,28 @@ _________________________________________________________________________
 HANDSON 4 (if collections store objects instead of primite data types then how do we process data in the filter method)
 
 
+class Product{
+int id;
+String name;
+duble price;
+
+public product(int id,String name,double price){
+this.id=id;
+thos.name=name;
+this.price=price;
+}
+}
+
+public class Filter{
+public static void main(String[] args){
+
+List<Product> pro=new ArrayList<Product>();
+pro.add(new Product(12,"Amit",234));
+pro.add(new Product(13,"Rishant",123));
+pro.add(new Product(14,"Shivani",233));
+
+pro.stream()
+.filter(p->p.price>25000)
+.forEach(pr->System.out.println(pr.price());
+}
+}
