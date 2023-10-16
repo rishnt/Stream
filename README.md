@@ -14,3 +14,63 @@ a- take data from the collections to the stream,
 b- perform the operations like filter, map on the stream,                               
 c- store the result into anotherr collection
 
+Methods Availabe in Streams are
+Sorted()- used before and after filtering data from the streams
+Count()- after filtering to check how many elements we got
+Collect()- After filtering we can colllect data and store in some other collection
+Distinct() - used for getting unique values after filtering
+forEach()- this will read each and every value from the Stream
+min()
+max()
+
+______________________________________________________________________
+HANDSON (1)
+
+ArrayList<Integr> n=new ArrayList<>();
+n.add(19);
+n.add(38);
+n.add(39);
+
+     OR
+
+List<Integer> n=Arrays.asList(10,29,29,38,29);
+List<Integer> evennum=new ArrayList<Integer>();
+
+without Streams
+________________________
+for(int num:n){
+if(num%2==0){
+evennum.add(num);
+} 
+}
+with Streams
+_________________________
+
+evennum=n.stream().filter(e->e%2==0).collect(Collectors.toList());
+System.out.orintln(evennum);
+  OR
+evennum=n.stream().filter(e->e%2==0).forEach(e->System.out.println(e));
+  OR
+evennum=n.stream().filter(e->e%2==0).forEach(System.out::println);
+
+
+______________________________________________________________________
+HANDSON(2)
+
+List<Strimng> names=Arrays.asList("Shivam","Rishant","Shashwat");
+List<String> result=new ArrayList<String>();
+result=names.stream().filter(str->dtr.length()>6 && str.length()<8).collect(Colllectors.toList());
+
+OR (directly print without storing on other streams)
+
+names.stream().filter(str->dtr.length()>6 && str.length()<8).forEach(str->System.out.println(str));
+_________________________________________________________________________
+HANDSON (3)
+
+List<String> words=Arrays.asList("a","syatem","enend",null,"sk",null);
+List<String> result=new ArrayList<String>();
+result=words.stream().filter(str->str!=null).collect(Collectors.toList()); 
+_________________________________________________________________________
+HANDSON 4 (if collections store objects instead of primite data types then how do we process data in the filter method)
+
+
