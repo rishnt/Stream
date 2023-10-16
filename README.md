@@ -167,3 +167,7 @@ empList.add(new Employee(101,"alex",2333));
   empList.stream().filer(emp->emp.salary>20000)
                .map(e->e.salary)
                .forEach(employee->System.out.println(employee));
+
+ _______________________________________________________
+ FLATMAP (
+ _______________________________________________________
