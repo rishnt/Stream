@@ -6,15 +6,20 @@ java.io.streams;  to work with the files ,binary data
 java.util.streams; used with the collections
 
 
-FILTER- based on some condition it will filter the data and store the data to another collection 
+### FILTER-
+based on some condition it will filter the data and store the data to another collection 
 
-MAP - it performs operations on each and every object/element from the collection and stores the result in some other collection
+### MAP
+- it performs operations on each and every object/element from the collection and stores the result in some other collection
 
-a- take data from the collections to the stream,                                                
-b- perform the operations like filter, map on the stream,                               
-c- store the result into anotherr collection
+a- take data from the collections to the stream
 
-Methods Availabe in Streams are
+b- perform the operations like filter, map on the stream
+
+c- store the result into another collection
+
+## Methods Availabe in Streams are
+___
 Sorted()- used before and after filtering data from the streams
 Count()- after filtering to check how many elements we got --->Terminal
 Collect()- After filtering we can colllect data and store in some other collection--->Terminal
@@ -25,7 +30,7 @@ filter()-------->non terminal Operatio
 map()-------->non terminal Operatio
 flatmap()  --------->non terminal Operation
 
-__________________________________________________________[FILTER]____________________________________________
+# FILTER
 HANDSON (1)
 ______________________________________________________
 ArrayList<Integr> n=new ArrayList<>();
@@ -36,7 +41,7 @@ n.add(39);
 List<Integer> n=Arrays.asList(10,29,29,38,29);
 List<Integer> evennum=new ArrayList<Integer>();
 __________________________________     
-[without Streams]
+### without streams
 
 for(int num:n){
 if(num%2==0){
@@ -45,14 +50,14 @@ evennum.add(num);
 }
 
 ________________________________                               
-[with Streams]
+### with streams
 
 
 evennum=n.stream().filter(e->e%2==0).collect(Collectors.toList());
 System.out.orintln(evennum);
-  OR
+  #### OR
 evennum=n.stream().filter(e->e%2==0).forEach(e->System.out.println(e));
-  OR
+   #### OR
 evennum=n.stream().filter(e->e%2==0).forEach(System.out::println);
 
 
@@ -73,7 +78,9 @@ List<String> words=Arrays.asList("a","syatem","enend",null,"sk",null);
 List<String> result=new ArrayList<String>();
 result=words.stream().filter(str->str!=null).collect(Collectors.toList()); 
 ________________________________________________________
-HANDSON 4 (if collections store objects instead of primite data types then how do we process data in the filter method)
+HANDSON 4 
+
+(if collections store objects instead of primite data types then how do we process data in the filter method)
 ________________________________________________________
 
 class Product{
@@ -103,7 +110,7 @@ pro.stream()
 }
 
 
-___[MAP]______________________________________________
+# MAP
 add the elemets from the collection to the stream and process them in the stream.map tranform the objcts by applying some operations on each and evey element and store them in some other collection/target.
 _______________________________________________
 HANDSON[1]
@@ -114,7 +121,7 @@ for(String name:vechile){
 vechileList.add(name.toUpperCase());
 }
 
-       OR
+  #### OR
 
  List<Integer> vechile=Arrays.asList("bus","car","flight");
 List<String> vechileList=new ArrayList<Integer>();
@@ -136,11 +143,13 @@ List<Integer> target=new ArrayList<Integer<();
 
 num.stream().map(n->n*3).forEach(number->System.out.println(number));
 
-OR
+#### OR
+
 num.stream().map(n->n*3).forEach(>System.out::println);
 
 ______________________________________________________
-HANDSON[4] (Filter and Map)
+HANDSON[4] 
+### (Filter and Map)
 ______________________________________________________
 
 class Employee
@@ -171,12 +180,14 @@ empList.add(new Employee(101,"alex",2333));
                .forEach(employee->System.out.println(employee));
 
  _______________________________________________________
-[FLATMAP] ( it will take each and every object from the collection and return the object. it os used when we have collections inside collections. map returns single object at a time but flatmap returns stream of objects at a time .
+# FLATMAP
+ it will take each and every object from the collection and return the object. it os used when we have collections inside collections. map returns single object at a time but flatmap returns stream of objects at a time .
 
  one input----> map()-----> one output
- one input----->flatmap()------> stream of objects _______________________________________________________
+ one input----->flatmap()------> stream of objects 
+ 
 HANDSON
-
+__________
 List<Integer> lst1=Arrays.asList(1,2);
 List<Integer> lst1=Arrays.asList(3,4);
 List<Integer> lst1=Arrays.asList(5,6);
@@ -235,9 +246,9 @@ List<String> namesList==finalList.stream()
 .collect(Collectors.toList());                         
 
 ______________________________________________________
-Non terminal methods are used for processing and always returm a stream of objects and Terminal Operstions always execute before the termination of the program and after non terminal and terminal operations are carried on the stream given after non terminal operations
+#### Non terminal methods are used for processing and always returm a stream of objects and Terminal Operstions always execute before the termination of the program and after non terminal and terminal operations are carried on the stream given after non terminal operations
 
-[Terminal operations]                                  
+## terminal Operations                                  
 collect()                                             
 count()                                               
 min(val1,val2)                                                 
@@ -247,7 +258,7 @@ toArray()
 
 _____________________________________________________
 
-distinct() , count() , limit()                          
+## distinct() , count() , limit()                          
 
 List<String> str=Arrays.asList("Honda","Bike","car","Honda","Scooter");   
 
@@ -271,7 +282,7 @@ Optional<Integer> min=numbers.stream().min((val1,val2)->{return val1.compareTo(v
 min.get();// to get min value
 
 
-// reduce   (  combines the objects into one single onject   
+// reduce   (  combines the objects into one single onject )  
 
 List<String> list=Arrays.asList("a","b","c","d");
 Optional<String>reduced= list.stream().reduce((value,combinedvalue)->{return combinedvalue+value;});                                 
@@ -283,7 +294,7 @@ Object arr[]=list.stream().toArray();
 System.out.println(arr.length);
 
  ___________________________________________________
- Sorted()                                              
+ ### Sorted()                                              
 
  List<Integer> list1=Arrays.asList(1,2,9,4,1,6);
  List<Integer> result=list1.stream().sorted().collect(Collectors.toList());                                                   
@@ -291,10 +302,12 @@ System.out.println(arr.length);
  // reverseOrder
  List<Integer> result=list1.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());                          
 
-                                                     ____________________________________________________
-  anyMatch() --> if matches with atleast one value the return true else false ,                                          
-  allmatch()--->every value should start with the predicate else it will return false                                        
-noneMatch() --->  if the objet is not matching with any in stream then it will return true else return false.                                               
+  ____________________________________________________
+  anyMatch() --> if matches with atleast one value the return true else false 
+  
+  allmatch()--->every value should start with the predicate else it will return false 
+  
+  noneMatch() --->  if the objet is not matching with any in stream then it will return true else return false.                                               
 
 Set<String> fruits=new HashSet<>();
 fruits.add("apple");
@@ -312,8 +325,11 @@ boolean result= fruits.stream().allmatch(value->{return value.startWith("one);})
 boolean result= fruits.stream().noneMatch(value->{return value.startWith("one);}); // true               
 
 _______________________________________________________
-findAny()--> return any object or elements from the stream and return null if dont have any element.        
+
+findAny()--> return any object or elements from the stream and return null if dont have any element.
+
 findFirst()---> return first element from the collection
+
 
 List<String> l=Arrys.asList("one","two","three");
 Optonal<String> ele = l.stream().findAny();
@@ -323,7 +339,7 @@ ele.get();///to print Value
 Optonal<String> ele = l.stream().findFirst();
 
 ______________________________________________________
-CONCATENATING THE STREAMS                               
+## CONCATENATING THE STREAMS                               
 
 List<String> l=Arrys.asList("one","two","three");       
 List<String> list=Arrays.asList("a","b","c","d");      
@@ -334,9 +350,10 @@ List<String> finallist= Stream.concat(stream1, stream2).collect(Collectors.toLis
 System.out.println(finallist);
 
 _______________________________________________________
-PARALLEL STREAM                                      
+# PARALLEL STREAM                                      
 
 in streams we first add the collection to the stream for the processing but the processing in the stream happens sequentially . in order to fasten the performance we need to process the objects/elements in the stream parallely, ie. if there are 4 objects in stream then we 2-2 objects as 2 streams and proess then parallely.
+
 Stream<Student> parallelStream = studentList.parallelStream();                          
 _______________________________________________________
 HANDSON                                                 
